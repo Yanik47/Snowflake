@@ -55,7 +55,6 @@
 4. Run the game using the command:
         
     `python snowflake_game.py`
-    
 
 ### Assets
 
@@ -63,18 +62,3 @@
     - `background.jpg`: The gameplay background.
     - `main_background.jpg`: The main menu background.
     - `score.jpg`: The score table background.
-
-### Future Enhancements
-
-- Add sound effects for more immersive gameplay.
-- Introduce levels with increasing difficulty.
-- Implement power-ups or special abilities.
-- Add keyboard controls for alternative gameplay.
-
-### Contributing
-
-Contributions, suggestions, and feedback are welcome! Feel free to fork the repository, make changes, and submit a pull request.
-
-### License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.
