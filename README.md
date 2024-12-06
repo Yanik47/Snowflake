@@ -53,11 +53,7 @@
 2. Make sure you have Python and Pygame installed.
 3. Place the required image files (`background.jpg`, `main_background.jpg`, `score.jpg`) in the game directory.
 4. Run the game using the command:
-    
-    bash
-    
-    Копировать код
-    
+        
     `python snowflake_game.py`
     
 
