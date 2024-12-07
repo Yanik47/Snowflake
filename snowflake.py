@@ -3,15 +3,14 @@ import pygame
 import random
 import sys
 import math
-
+import os 
 # Initialize Pygame
 pygame.init()
-
+display_info = pygame.display.Info()
 # Window parameters
-WIDTH, HEIGHT = 738, 918
+WIDTH, HEIGHT = 738, display_info.current_h - 100
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Snowflake Game")
-
 # Colors
 WHITE = (255, 255, 255)
 RED = (255, 0, 0)
@@ -21,16 +20,27 @@ BLUR_INTENSITY = 8  # Number of layers for the blur effect
 BLUR_STEP = 2       # Step for increasing size for each layer
 BLUR_ALPHA_STEP = 100 # Step for decreasing transparency for each layer
 
+def resource_path(relative_path):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
 # Load background
-background_image = pygame.image.load("background.jpg")
-main_background_image = pygame.image.load("main_background.jpg")
-score_image = pygame.image.load("score.jpg")
+# background_image = pygame.image.load("background.jpg")
+# main_background_image = pygame.image.load("main_background.jpg")
+# score_image = pygame.image.load("score.jpg")
+background_image = pygame.image.load(resource_path("images/background.jpg"))
+background_image = pygame.transform.scale(background_image, (WIDTH, HEIGHT))
+main_background_image = pygame.image.load(resource_path("images/main_background.jpg"))
+score_image = pygame.image.load(resource_path("images/score.jpg"))
+
 # Font
 font = pygame.font.Font(None, 36)
 
 # Snowflake parameters
 snowflakes = []
 snowflake_speed = 1.2
+speed_increment = 0.0001
 max_snowflakes = 10
 missed_snowflakes = 5
 max_missed = 0
@@ -91,7 +101,7 @@ def handle_game_over_screen():
 
     screen.blit(main_background_image, (0, 0))
     draw_text("Game Over", WIDTH // 2, HEIGHT // 4, size=64, color=RED, center=True)
-    draw_text(f"Your Score: {destroyed_snowflakes}", WIDTH // 2, HEIGHT // 2 - 50, size=48, color=WHITE, center=True)
+    draw_text(f"Your Score: {destroyed_snowflakes}", WIDTH // 2, HEIGHT // 2 - 50, size=48, color=RED, center=True)
 
     # "Play Again" button
     play_again_button = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 2 + 50, 200, 60)
@@ -172,7 +182,7 @@ clock = pygame.time.Clock()
 
 def handle_game_screen():
     """Handles the game screen."""
-    global snowflakes, missed_snowflakes, destroyed_snowflakes, game_state
+    global snowflakes, missed_snowflakes, destroyed_snowflakes, game_state, snowflake_speed
 
     screen.blit(background_image, (0, 0))
 
@@ -212,6 +222,7 @@ def handle_game_screen():
                 missed_snowflakes -= 1
 
     snowflakes = new_snowflakes
+    snowflake_speed += speed_increment
 
     # Draw snowflakes
     for snowflake in snowflakes:
