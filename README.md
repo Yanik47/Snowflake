@@ -1,9 +1,5 @@
 # Snowflake Game
 
-### Overview
-
-**Snowflake Game** is a fun and engaging game where players catch falling snowflakes while avoiding missing too many. The game features beautiful visuals, a score-tracking system, and multiple game states (start screen, gameplay, score table, and game over screen).
-
 ### Features
 
 - **Dynamic Snowflakes**: Snowflakes fall with varying speeds and movements, adding challenge and excitement.
