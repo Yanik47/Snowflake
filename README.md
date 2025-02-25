@@ -57,3 +57,14 @@
     - `background.jpg`: The gameplay background.
     - `main_background.jpg`: The main menu background.
     - `score.jpg`: The score table background.
+
+ ### Screenshots 
+
+#### Main Page
+![MainPage](https://drive.google.com/uc?export=view&id=1yGc78aKa7-PZH97nd2xnZa7cpvlDT9qV)
+
+#### Game 
+![Game](https://drive.google.com/uc?export=view&id=1-ukLqmXio3_EVwG-lcrcGOWsI4iO9WB5)
+
+#### End Score
+![End](https://drive.google.com/uc?export=view&id=1jNLZYWr48ihjC_LwKN2EyW1mTmkERzXX)
